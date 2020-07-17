@@ -21,7 +21,7 @@
   <meta name="description" content="摘要PHP 运行环境的性能考虑在 php 深入学习中需要逐步强化意识，并着手实现，其中对于性能分析的相关工具也需要有一定的掌握，比如压力测试工具 Apache Benchmark，Opcode 代码分析工具 vld，PHP 性能分析工具 XHProf，另外，对于日常编写代码时，也需要考虑 PHP 自身的特性，进行扬长避短，使用 isset 而不用 array_key_exists 方法，以及尽可能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP性能优化">
-<meta property="og:url" content="http://yoursite.com/2020/07/17/php/index.html">
+<meta property="og:url" content="http://jas-wang.fun/2020/07/17/php/index.html">
 <meta property="og:site_name" content="1">
 <meta property="og:description" content="摘要PHP 运行环境的性能考虑在 php 深入学习中需要逐步强化意识，并着手实现，其中对于性能分析的相关工具也需要有一定的掌握，比如压力测试工具 Apache Benchmark，Opcode 代码分析工具 vld，PHP 性能分析工具 XHProf，另外，对于日常编写代码时，也需要考虑 PHP 自身的特性，进行扬长避短，使用 isset 而不用 array_key_exists 方法，以及尽可能">
 <meta property="og:locale" content="zh_CN">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="php底层优化">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2020/07/17/php/index.html">
+  <link rel="canonical" href="http://jas-wang.fun/2020/07/17/php/index.html">
   
     <link rel="alternate" href="/atom.xml" title="1" type="application/atom+xml">
   
@@ -129,12 +129,12 @@
         </li>
         
         
-        <li class="menu-item menu-item-about">
-          <a href="/about">
+        <li class="menu-item menu-item-links">
+          <a href="/links">
             
-            <i class="icon icon-cup-fill"></i>
+            <i class="icon icon-friendship"></i>
             
-            <span class="menu-title">关于</span>
+            <span class="menu-title">友链</span>
           </a>
         </li>
         
@@ -143,15 +143,7 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        <li><a href="https://github.com/jas-wang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
     </ul>
 
@@ -199,7 +191,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">时间轴</h3>
     <div class="widget-body">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
@@ -279,6 +271,13 @@
 
 
         
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/17/php/#comments" class="article-comment-link">评论</a></span>
         
@@ -300,7 +299,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2020/07/17/php/" title="PHP性能优化" target="_blank" rel="external">http://yoursite.com/2020/07/17/php/</a>
+      <a href="http://jas-wang.fun/2020/07/17/php/" title="PHP性能优化" target="_blank" rel="external">http://jas-wang.fun/2020/07/17/php/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -354,7 +353,7 @@
   
   <div class="bar-right">
     
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    <div class="share-component" data-sites="wechat" data-mobile-sites="wechat"></div>
     
   </div>
   </div>
@@ -373,14 +372,14 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="/" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="wechatpay">
               <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="/" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
@@ -411,23 +410,13 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        <li><a href="https://github.com/jas-wang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
     </ul>
 
     <div class="copyright">
     	
-        <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
-        </div>
+
     </div>
 </footer>
   <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
@@ -466,6 +455,8 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
    
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 
 
