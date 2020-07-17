@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>1</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-07-17T06:54:49.156Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Jas wang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP性能优化</title>
+    <link href="http://yoursite.com/2020/07/17/php/"/>
+    <id>http://yoursite.com/2020/07/17/php/</id>
+    <published>2020-07-17T01:52:46.000Z</published>
+    <updated>2020-07-17T06:54:49.156Z</updated>
+    
+    <content type="html"><![CDATA[<p>摘要<br>PHP 运行环境的性能考虑在 php 深入学习中需要逐步强化意识，并着手实现，其中对于性能分析的相关工具也需要有一定的掌握，比如压力测试工具 Apache Benchmark，Opcode 代码分析工具 vld，PHP 性能分析工具 XHProf，另外，对于日常编写代码时，也需要考虑 PHP 自身的特性，进行扬长避短，使用 isset 而不用 array_key_exists 方法，以及尽可能规避 PHP 自带的魔术方法。对 PHP 的运行流程也需要有一个大致的了解，知道 Opcode 在 PHP 执行过程中的阶段。</p><hr><p> PHP 性能优化<br> 一、语言级性能优化(一)<br>PHP 性能问题的解决方向</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语言级别的性能优化 -&gt; 周边问题的性能优化 -&gt; 语言自身分析、优化</span><br></pre></td></tr></table></figure><p>1.压力测试工具 Apache Benchmark (ab)<br>1). ab 是由 Apache 提供的压力测试软件，安装 apache 服务器时会自带该压力测试软件<br>2). 基本使用[Linux 平台]</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./ab -n1000 -c100 http://www.baidu.com/</span><br><span class="line"><span class="comment"># -n 请求数</span></span><br><span class="line"><span class="comment"># -c 并发数</span></span><br><span class="line"><span class="comment"># url 目标压力测试地址</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;摘要&lt;br&gt;PHP 运行环境的性能考虑在 php 深入学习中需要逐步强化意识，并着手实现，其中对于性能分析的相关工具也需要有一定的掌握，比如压力测试工具 Apache Benchmark，Opcode 代码分析工具 vld，PHP 性能分析工具 XHProf，另外，对于日常
+      
+    
+    </summary>
+    
+    
+    
+      <category term="php底层优化" scheme="http://yoursite.com/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+</feed>
