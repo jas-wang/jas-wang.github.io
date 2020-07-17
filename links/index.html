@@ -136,12 +136,12 @@
         </li>
         
         
-        <li class="menu-item menu-item-links">
-          <a href="/links">
+        <li class="menu-item menu-item-about">
+          <a href="/about">
             
-            <i class="icon icon-friendship"></i>
+            <i class="icon icon-cup-fill"></i>
             
-            <span class="menu-title">友链</span>
+            <span class="menu-title">关于</span>
           </a>
         </li>
         
@@ -339,7 +339,7 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
   <script src="//cdn.jsdelivr.net/npm/valine"></script>
   <script type="text/javascript">
   var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
+  var meta = 'nick,';
   meta = meta.split(',').filter(function(item) {
     return GUEST.indexOf(item) > -1;
   });
@@ -353,7 +353,7 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     avatar: 'mm',
     meta: meta,
     pageSize: '10' || 10,
-    visitor: false
+    visitor: true
   });
   </script>
 

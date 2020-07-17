@@ -134,12 +134,12 @@
         </li>
         
         
-        <li class="menu-item menu-item-links">
-          <a href="/links">
+        <li class="menu-item menu-item-about">
+          <a href="/about">
             
-            <i class="icon icon-friendship"></i>
+            <i class="icon icon-cup-fill"></i>
             
-            <span class="menu-title">友链</span>
+            <span class="menu-title">关于</span>
           </a>
         </li>
         
@@ -297,13 +297,20 @@
 	</span>
 
 
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2020/07/17/php/" class="leancloud_visitors"  data-flag-title="PHP性能优化">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/17/php/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 342(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 710(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -318,9 +325,8 @@
 </ul>
 <p>1.压力测试工具 Apache Benchmark (ab)</p>
 <ul>
-<li>ab 是由 Apache 提供的压力测试软件，安装 apache 服务器时会自带该压力测试软件</li>
-<li>基本使用[Linux 平台]<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./ab -n1000 -c100 http://www.baidu.com/</span><br><span class="line"><span class="comment"># -n 请求数</span></span><br><span class="line"><span class="comment"># -c 并发数</span></span><br><span class="line"><span class="comment"># url 目标压力测试地址</span></span><br></pre></td></tr></table></figure></li>
-<li>参考项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 每秒接收请求数 &#x3D;&gt; 尽可能大</span><br><span class="line">Requests per second (mean)</span><br><span class="line"># 每一个请求的耗时情况 &#x3D;&gt; 尽可能小</span><br><span class="line">Time per request (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure></li>
+<li>ab 是由 Apache 提供的压力测试软件，安装 apache 服务器时会自带该压力测试软件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ./ab -n1000 -c100 http://www.baidu.com/</span><br><span class="line">-n ：总共的请求执行数，缺省是1；</span><br><span class="line">-c： 并发数，缺省是1；</span><br><span class="line">-t：测试所进行的总时间，秒为单位，缺省50000s</span><br><span class="line">-p：POST时的数据文件</span><br><span class="line">-w: 以HTML表的格式输出结果</span><br></pre></td></tr></table></figure></li>
+<li>参考项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Failed requests:        0 &#x2F;&#x2F;失败的请求数量。因网络原因或服务器性能原因，发起的请求并不一定全部成功，通过该数值和Complete requests相除可以计算请求的失败率，作为测试结果的重要参考。</span><br><span class="line">Total transferred:      103314 bytes&#x2F;&#x2F;总共传输的数据量，指的是ab从被测服务器接收到的总数据量，包括index.html的文本内容和请求头信息。</span><br><span class="line">HTML transferred:       22700 bytes &#x2F;&#x2F;从服务器接收到的index.html文件的总大小，等于Document Length＊Complete requests＝227 bytes＊100＝22700 bytes</span><br><span class="line">Requests per second:    91.50 [#&#x2F;sec] (mean) &#x2F;&#x2F;平均(mean)每秒完成的请求数：QPS，这是一个平均值，等于Complete requests&#x2F;Time taken for tests&#x3D;100&#x2F;1.093&#x3D;91.50</span><br><span class="line">Time per request:       109.287 [ms] (mean) &#x2F;&#x2F;从用户角度看，完成一个请求所需要的时间（因用户数量不止一个，服务器完成10个请求，平均每个用户才接收到一个完整的返回，所以该值是下一项数值的10倍。）</span><br><span class="line">Time per request:       10.929 [ms] (mean, across all concurrent requests)&#x2F;&#x2F; 服务器完成一个请求的时间。</span><br><span class="line">Transfer rate:          92.32 [Kbytes&#x2F;sec] received&#x2F;&#x2F;网络传输速度。对于大文件的请求测试，这个值很容易成为系统瓶颈所在。要确定该值是不是瓶颈，需要了解客户端和被测服务器之间的网络情况，包括网络带宽和网卡速度等信息。</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>2.PHP 自身能力</p>
 <ul>
