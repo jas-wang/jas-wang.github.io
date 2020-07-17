@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>PHP性能优化 | Hexo</title>
-  <meta name="description" content="摘要PHP 运行环境的性能考虑在 php 深入学习中需要逐步强化意识，并着手实现，其中对于性能分析的相关工具也需要有一定的掌握，比如压力测试工具 Apache Benchmark，Opcode 代码分析工具 vld，PHP 性能分析工具 XHProf，另外，对于日常编写代码时，也需要考虑 PHP 自身的特性，进行扬长避短，使用 isset 而不用 array_key_exists 方法，以及尽可能">
+  <title>PHP性能优化 | jas-wang的个人博客</title>
+  <meta name="description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化(一)  指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP性能优化">
 <meta property="og:url" content="http://jas-wang.fun/2020/07/17/php/index.html">
 <meta property="og:site_name" content="1">
-<meta property="og:description" content="摘要PHP 运行环境的性能考虑在 php 深入学习中需要逐步强化意识，并着手实现，其中对于性能分析的相关工具也需要有一定的掌握，比如压力测试工具 Apache Benchmark，Opcode 代码分析工具 vld，PHP 性能分析工具 XHProf，另外，对于日常编写代码时，也需要考虑 PHP 自身的特性，进行扬长避短，使用 isset 而不用 array_key_exists 方法，以及尽可能">
+<meta property="og:description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化(一)  指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchm">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-17T01:52:46.000Z">
-<meta property="article:modified_time" content="2020-07-17T06:54:49.156Z">
+<meta property="article:modified_time" content="2020-07-17T08:44:39.917Z">
 <meta property="article:author" content="Jas wang">
 <meta property="article:tag" content="php底层优化">
 <meta name="twitter:card" content="summary">
@@ -119,6 +119,16 @@
         </li>
         
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
         <li class="menu-item menu-item-tags">
           <a href="/tags">
             
@@ -168,6 +178,13 @@
 
     
       
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
 
     
       
@@ -219,7 +236,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                
+                <a class="category-link" href="/categories/PHP/">PHP</a>
               </p>
               <p class="item-title">
                 <a href="/2020/07/17/php/" class="title">PHP性能优化</a>
@@ -263,6 +280,11 @@
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+  </span>
+
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
@@ -281,16 +303,36 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/17/php/#comments" class="article-comment-link">评论</a></span>
         
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 342(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
+
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>摘要<br>PHP 运行环境的性能考虑在 php 深入学习中需要逐步强化意识，并着手实现，其中对于性能分析的相关工具也需要有一定的掌握，比如压力测试工具 Apache Benchmark，Opcode 代码分析工具 vld，PHP 性能分析工具 XHProf，另外，对于日常编写代码时，也需要考虑 PHP 自身的特性，进行扬长避短，使用 isset 而不用 array_key_exists 方法，以及尽可能规避 PHP 自带的魔术方法。对 PHP 的运行流程也需要有一个大致的了解，知道 Opcode 在 PHP 执行过程中的阶段。</p>
+        <p>摘要<br>对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。<br>PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。</p>
 <hr>
-<p> PHP 性能优化<br> 一、语言级性能优化(一)<br>PHP 性能问题的解决方向</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语言级别的性能优化 -&gt; 周边问题的性能优化 -&gt; 语言自身分析、优化</span><br></pre></td></tr></table></figure>
-<p>1.压力测试工具 Apache Benchmark (ab)<br>1). ab 是由 Apache 提供的压力测试软件，安装 apache 服务器时会自带该压力测试软件<br>2). 基本使用[Linux 平台]</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./ab -n1000 -c100 http://www.baidu.com/</span><br><span class="line"><span class="comment"># -n 请求数</span></span><br><span class="line"><span class="comment"># -c 并发数</span></span><br><span class="line"><span class="comment"># url 目标压力测试地址</span></span><br></pre></td></tr></table></figure>
+<p>PHP 性能问题的解决方向<br>一、语言级性能优化(一)</p>
+<ul>
+<li>指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果</li>
+</ul>
+<p>1.压力测试工具 Apache Benchmark (ab)</p>
+<ul>
+<li>ab 是由 Apache 提供的压力测试软件，安装 apache 服务器时会自带该压力测试软件</li>
+<li>基本使用[Linux 平台]<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./ab -n1000 -c100 http://www.baidu.com/</span><br><span class="line"><span class="comment"># -n 请求数</span></span><br><span class="line"><span class="comment"># -c 并发数</span></span><br><span class="line"><span class="comment"># url 目标压力测试地址</span></span><br></pre></td></tr></table></figure></li>
+<li>参考项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 每秒接收请求数 &#x3D;&gt; 尽可能大</span><br><span class="line">Requests per second (mean)</span><br><span class="line"># 每一个请求的耗时情况 &#x3D;&gt; 尽可能小</span><br><span class="line">Time per request (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>2.PHP 自身能力</p>
+<ul>
+<li>性能问题：自身代码冗余较多，可读性不佳，并且性能低。</li>
+<li>为什么性能低：PHP 代码需要编译解释为底层语言，这一过程每次请求都会处理一遍，开销大。</li>
+<li>好的方法：多实用 PHP 内置变量、常量、函数。</li>
+</ul>
+
       
     </div>
     <div class="article-footer">
@@ -332,7 +374,7 @@
     
   <section id="comments">
   	
-      <div id="vcomments"></div>
+      <div id="uyan_frame"></div>
     
   </section>
 
@@ -416,6 +458,8 @@
 
     <div class="copyright">
     	
+        &copy; 2020 Jas wang
+        
 
     </div>
 </footer>
@@ -463,29 +507,8 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
 
-     
 
 
 
