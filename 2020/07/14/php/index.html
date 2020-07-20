@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>PHP性能优化 | jas-wang的个人博客</title>
+  <title>PHP性能优化点 | jas-wang的个人博客</title>
   <meta name="description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化 指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchmark">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP性能优化">
-<meta property="og:url" content="http://jas-wang.fun/2020/07/17/php/index.html">
+<meta property="og:title" content="PHP性能优化点">
+<meta property="og:url" content="http://jas-wang.fun/2020/07/14/php/index.html">
 <meta property="og:site_name" content="1">
 <meta property="og:description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化 指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchmark">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-17T01:52:46.000Z">
-<meta property="article:modified_time" content="2020-07-20T01:34:26.979Z">
+<meta property="article:published_time" content="2020-07-14T01:52:46.000Z">
+<meta property="article:modified_time" content="2020-07-20T08:44:27.698Z">
 <meta property="article:author" content="Jas wang">
 <meta property="article:tag" content="php底层优化">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://jas-wang.fun/2020/07/17/php/index.html">
+  <link rel="canonical" href="http://jas-wang.fun/2020/07/14/php/index.html">
   
     <link rel="alternate" href="/atom.xml" title="1" type="application/atom+xml">
   
@@ -181,7 +181,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -191,7 +191,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">MySQL性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" rel="tag">php底层优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">MySQL性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" rel="tag">PHP学习路线</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" rel="tag">php底层优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" rel="tag">性能分析工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -201,7 +201,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13px;">MySQL性能优化</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/php/" style="font-size: 13px;">php</a> <a href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" style="font-size: 13px;">php底层优化</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 13px;">高并发</a>
+      <a href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13px;">MySQL性能优化</a> <a href="/tags/PHP%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 13px;">PHP学习路线</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" style="font-size: 13px;">php底层优化</a> <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">性能分析工具</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 13px;">高并发</a>
     </div>
   </div>
 
@@ -210,7 +210,7 @@
   <div class="widget">
     <h3 class="widget-title">时间轴</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -225,7 +225,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/2020/07/17/php/" class="thumb">
+              <a href="/2020/07/20/php-xhprof/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -239,10 +239,10 @@
                 <a class="category-link" href="/categories/PHP/">PHP</a>
               </p>
               <p class="item-title">
-                <a href="/2020/07/17/php/" class="title">PHP性能优化</a>
+                <a href="/2020/07/20/php-xhprof/" class="title">PHP性能分析工具——xhprof</a>
               </p>
               <p class="item-date">
-                <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
+                <time datetime="2020-07-20T01:52:46.000Z" itemprop="datePublished">2020-07-20</time>
               </p>
             </div>
           </li>
@@ -264,7 +264,7 @@
                 <a class="category-link" href="/categories/PHP/">PHP</a>
               </p>
               <p class="item-title">
-                <a href="/2020/07/17/question/" class="title">常见问题以及解决办法</a>
+                <a href="/2020/07/17/question/" class="title">常见问题以及解决办法【todo】</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
@@ -297,6 +297,56 @@
             </div>
           </li>
           
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/15/route/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/15/route/" class="title">PHP技术学习路线</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-15T01:52:46.000Z" itemprop="datePublished">2020-07-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/14/php/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/14/php/" class="title">PHP性能优化点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-14T01:52:46.000Z" itemprop="datePublished">2020-07-14</time>
+              </p>
+            </div>
+          </li>
+          
       </ul>
     </div>
   </div>
@@ -312,7 +362,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#PHP-性能问题的解决方向"><span class="toc-number">1.</span> <span class="toc-text">PHP 性能问题的解决方向</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一、语言级性能优化"><span class="toc-number"></span> <span class="toc-text">一、语言级性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-压力测试工具-Apache-Benchmark-ab"><span class="toc-number">1.</span> <span class="toc-text">1.压力测试工具 Apache Benchmark (ab)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-PHP-自身能力"><span class="toc-number">2.</span> <span class="toc-text">2.PHP 自身能力</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-减少-PHP-魔法函数的使用"><span class="toc-number">3.</span> <span class="toc-text">3.减少 PHP 魔法函数的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-linux-time命令-可以查看PHP文件的执行耗时"><span class="toc-number">4.</span> <span class="toc-text">4.linux time命令-可以查看PHP文件的执行耗时</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-错误抑制符"><span class="toc-number">5.</span> <span class="toc-text">5.错误抑制符 @</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-合理使用内存"><span class="toc-number">6.</span> <span class="toc-text">6.合理使用内存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-避免在循环内做运算"><span class="toc-number">7.</span> <span class="toc-text">7.避免在循环内做运算</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-务必适用带引号字符串做键值"><span class="toc-number">8.</span> <span class="toc-text">8.务必适用带引号字符串做键值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、PHP-周边环境影响"><span class="toc-number"></span> <span class="toc-text">二、PHP 周边环境影响</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-运行环境"><span class="toc-number">1.</span> <span class="toc-text">1.运行环境</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-性能问题的解决方向"><span class="toc-number">1.</span> <span class="toc-text">PHP 性能问题的解决方向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一、语言级性能优化"><span class="toc-number">2.</span> <span class="toc-text">一、语言级性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-压力测试工具-Apache-Benchmark-ab"><span class="toc-number">2.1.</span> <span class="toc-text">1.压力测试工具 Apache Benchmark (ab)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-PHP-自身能力"><span class="toc-number">2.2.</span> <span class="toc-text">2.PHP 自身能力</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-减少-PHP-魔法函数的使用"><span class="toc-number">2.3.</span> <span class="toc-text">3.减少 PHP 魔法函数的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-Linux-time命令-可以查看PHP文件的执行耗时"><span class="toc-number">2.4.</span> <span class="toc-text">4.Linux time命令-可以查看PHP文件的执行耗时</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-错误抑制符"><span class="toc-number">2.5.</span> <span class="toc-text">5.错误抑制符 @</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-合理使用内存"><span class="toc-number">2.6.</span> <span class="toc-text">6.合理使用内存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-避免在循环内做运算"><span class="toc-number">2.7.</span> <span class="toc-text">7.避免在循环内做运算</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-务必适用带引号字符串做键值"><span class="toc-number">2.8.</span> <span class="toc-text">8.务必适用带引号字符串做键值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、PHP-周边环境影响"><span class="toc-number">3.</span> <span class="toc-text">二、PHP 周边环境影响</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-运行环境"><span class="toc-number">3.1.</span> <span class="toc-text">1.运行环境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-优化网络请求"><span class="toc-number">3.2.</span> <span class="toc-text">2.优化网络请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-开启PHP慢日志查询"><span class="toc-number">3.3.</span> <span class="toc-text">3.开启PHP慢日志查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-借助-xhprof-工具分析-PHP-性能"><span class="toc-number">3.4.</span> <span class="toc-text">4.借助 xhprof 工具分析 PHP 性能</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、-PHP-性能瓶颈终极办法"><span class="toc-number">4.</span> <span class="toc-text">三、 PHP 性能瓶颈终极办法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-APC-Alternative-PHP-Cache"><span class="toc-number">4.1.</span> <span class="toc-text">1.APC (Alternative PHP Cache)</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -326,7 +376,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PHP性能优化
+      PHP性能优化点
     </h1>
   
 
@@ -334,8 +384,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/07/17/php/" class="article-date">
-	  <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
+	<a href="/2020/07/14/php/" class="article-date">
+	  <time datetime="2020-07-14T01:52:46.000Z" itemprop="datePublished">2020-07-14</time>
 	</a>
 </span>
         
@@ -362,18 +412,18 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2020/07/17/php/" class="leancloud_visitors"  data-flag-title="PHP性能优化">
+    	<span id="/2020/07/14/php/" class="leancloud_visitors"  data-flag-title="PHP性能优化点">
 			<span class="leancloud-visitors-count">0</span>
 		</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/17/php/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/14/php/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.7k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 10(分)</span>
 	
 
       </div>
@@ -382,7 +432,7 @@
       
         <p>摘要<br>对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。<br>PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。</p>
 <hr>
-<h5 id="PHP-性能问题的解决方向"><a href="#PHP-性能问题的解决方向" class="headerlink" title="PHP 性能问题的解决方向"></a>PHP 性能问题的解决方向</h5><h4 id="一、语言级性能优化"><a href="#一、语言级性能优化" class="headerlink" title="一、语言级性能优化"></a>一、语言级性能优化</h4><ul>
+<h4 id="PHP-性能问题的解决方向"><a href="#PHP-性能问题的解决方向" class="headerlink" title="PHP 性能问题的解决方向"></a>PHP 性能问题的解决方向</h4><h4 id="一、语言级性能优化"><a href="#一、语言级性能优化" class="headerlink" title="一、语言级性能优化"></a>一、语言级性能优化</h4><ul>
 <li>指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果</li>
 </ul>
 <h5 id="1-压力测试工具-Apache-Benchmark-ab"><a href="#1-压力测试工具-Apache-Benchmark-ab" class="headerlink" title="1.压力测试工具 Apache Benchmark (ab)"></a>1.压力测试工具 Apache Benchmark (ab)</h5><ul>
@@ -408,7 +458,7 @@
 <li>由于 isset 属于 php 中的语言结构，而 array_key_exists 是函数，所以 isset 更快。</li>
 </ul>
 <h5 id="3-减少-PHP-魔法函数的使用"><a href="#3-减少-PHP-魔法函数的使用" class="headerlink" title="3.减少 PHP 魔法函数的使用"></a>3.减少 PHP 魔法函数的使用</h5><p>PHP自身提供的魔法函数，性能并不是很好 ,是为了给 PHP 程序员省事，PHP 语言为你做了很多，所以尽量减少魔法函数的使用。</p>
-<h5 id="4-linux-time命令-可以查看PHP文件的执行耗时"><a href="#4-linux-time命令-可以查看PHP文件的执行耗时" class="headerlink" title="4.linux time命令-可以查看PHP文件的执行耗时"></a>4.linux time命令-可以查看PHP文件的执行耗时</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost wwwroot]# time php index.php</span><br><span class="line">real	0m0.070s</span><br><span class="line">user	0m0.050s (关注这个)</span><br><span class="line">sys	0m0.020s</span><br></pre></td></tr></table></figure>
+<h5 id="4-Linux-time命令-可以查看PHP文件的执行耗时"><a href="#4-Linux-time命令-可以查看PHP文件的执行耗时" class="headerlink" title="4.Linux time命令-可以查看PHP文件的执行耗时"></a>4.Linux time命令-可以查看PHP文件的执行耗时</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost wwwroot]# time php index.php</span><br><span class="line">real	0m0.070s</span><br><span class="line">user	0m0.050s (关注这个)</span><br><span class="line">sys	0m0.020s</span><br></pre></td></tr></table></figure>
 <p>在上面运行的结果中，我们只关注user的那一行时间，关于这三个时间的解释，可以参考下面的解释：</p>
 <ul>
 <li>real 时间是指挂钟时间，也就是命令开始执行到结束的时间。这个短时间包括其他进程所占用的时间片，和进程被阻塞时所花费的时间。</li>
@@ -434,7 +484,31 @@
 <p>优化方向</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-读写内存 &lt;&lt;(远小于) 读写数据库[基于文件系统，操作本地磁盘] &lt;(小于) 读写磁盘 &lt; 读写网络数据</span><br><span class="line"></span><br><span class="line">-数据库会使用内存作为缓存，将其热数据先缓存在内存中，异步地写入到数据库 &#x3D;&gt; 数据库介于内存和磁盘之间</span><br><span class="line"></span><br><span class="line">-网络数据：通过socket发起，socket使用的是本地的文件句柄，磁盘操作。受网络延迟影响， 延迟大时远远</span><br><span class="line">小于读写磁盘，延迟小时和读写磁盘差不多。</span><br></pre></td></tr></table></figure>
 <p>建议：尽可能多的使用读写数据库、读写内存，尽量规避操作磁盘和操作网络数据。</p>
-
+<h5 id="2-优化网络请求"><a href="#2-优化网络请求" class="headerlink" title="2.优化网络请求"></a>2.优化网络请求</h5><p>(1).网络请求的坑：对方接口的不确定因素 ,网络的稳定性<br>(2).如何优化网络请求？</p>
+<ul>
+<li>设置超时时间：（连接超时，读超时，写超时）</li>
+<li>将串行请求并行化：使用 curlmulti*() =&gt; 最简单，但是并不是最好用；使用 swoole 扩展 =&gt; 效果更好<br><a href="https://www.cnblogs.com/52fhy/p/8908315.html" target="_blank" rel="noopener">curl_multi实现并发列子</a></li>
+</ul>
+<h5 id="3-开启PHP慢日志查询"><a href="#3-开启PHP慢日志查询" class="headerlink" title="3.开启PHP慢日志查询"></a>3.开启PHP慢日志查询</h5><ul>
+<li>找到php-fpm.conf文件</li>
+<li>去掉request_slowlog_timeout前面的分号，并设置时间。如：request_slowlog_timeout=5表示超过5秒的</li>
+<li>慢日志文件位置默认在php的安装目录下的log文件夹中，可以通过修改slowlog = log/$pool.log.slow参数来指定。</li>
+<li>php-fpm慢日志的例子，慢日志会记录下进程号，脚本名称，具体哪个文件哪行代码的哪个函数执行时间过长。</li>
+<li>request_slowlog_timeout 和 slowlog需要同时设置，开启request_slowlog_timeout的同时需要开启 slowlog</li>
+<li>慢日志路径需要手动创建 (slowlog)</li>
+</ul>
+<h5 id="4-借助-xhprof-工具分析-PHP-性能"><a href="#4-借助-xhprof-工具分析-PHP-性能" class="headerlink" title="4.借助 xhprof 工具分析 PHP 性能"></a>4.借助 xhprof 工具分析 PHP 性能</h5><p><a href="/2020/07/20/php-xhprof/">php-性能分析工具-xhprof</a></p>
+<h4 id="三、-PHP-性能瓶颈终极办法"><a href="#三、-PHP-性能瓶颈终极办法" class="headerlink" title="三、 PHP 性能瓶颈终极办法"></a>三、 PHP 性能瓶颈终极办法</h4><h5 id="1-APC-Alternative-PHP-Cache"><a href="#1-APC-Alternative-PHP-Cache" class="headerlink" title="1.APC (Alternative PHP Cache)"></a>1.APC (Alternative PHP Cache)</h5><ul>
+<li>是一款开源的php插件,用来对php的代码或者用户数据进行缓存。</li>
+<li>apc可以去掉php动态解析以及编译的时间，php脚本可以执行的更快。</li>
+<li>PHP是一个动态脚本语言，所以为了让用户在浏览器中看到页面内容，服务器必须解析php代码从而生成想用的html代码。从上面的图中可以看出，在没有apc的时候，用户对php页面的每一次请求，服务器都需要进行对php进行解析，编译以及执行，但是很多时候，只要php代码没有发生更改，php的执行逻辑就不会改变，也就是说解析以及编译的过程就可以省略，直接执行然后将结果返回即可。这就是apc的工作，apc缓存php的可执行代码，从而去掉了解析以及编译的过程，加快了php脚本的执行速度。</li>
+<li>缓存数据量小，大的话建议redis或者memcache</li>
+</ul>
+<p>这里有一个简单的例子对比redis 和 apc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function getTimeStamp() &#123;  </span><br><span class="line">  $timestr &#x3D; microtime();  </span><br><span class="line">  $timestrary &#x3D; explode(&#39; &#39;, $timestr);  </span><br><span class="line">  $result &#x3D; intval($timestrary[1])*1000 + intval(floatval($timestrary[0])*1000);  </span><br><span class="line">  return $result;  </span><br><span class="line">&#125;   </span><br><span class="line">$redis &#x3D; new Redis();  </span><br><span class="line">$redis-&gt;connect(&#39;127.0.0.1&#39;, 6379);  </span><br><span class="line">$key &#x3D; &#39;key&#39;;  </span><br><span class="line">$value &#x3D;&#39;value&#39;;  </span><br><span class="line">$redis-&gt;set($key, $value);  </span><br><span class="line">    </span><br><span class="line">apc_store($key, $value, 1);   </span><br><span class="line">    </span><br><span class="line">$begin &#x3D; getTimeStamp();  </span><br><span class="line">for($i &#x3D; 0 ; $i &lt; 100000 ; $i &#x3D; $i +1) &#123;  </span><br><span class="line">  $result &#x3D; apc_fetch($key);  </span><br><span class="line">&#125;   </span><br><span class="line">$cost &#x3D; getTimeStamp() - $begin;  </span><br><span class="line">var_dump($cost);  </span><br><span class="line">$begin &#x3D; getTimeStamp();  </span><br><span class="line">for($i &#x3D; 0 ; $i &lt; 100000 ; $i &#x3D; $i +1) &#123;  </span><br><span class="line">  $result &#x3D; $redis-&gt;get($key);  </span><br><span class="line">&#125;   </span><br><span class="line">$cost &#x3D; getTimeStamp() - $begin;  </span><br><span class="line">var_dump($cost);  </span><br><span class="line">$redis-&gt;close();</span><br></pre></td></tr></table></figure>
+<p>都是简单的取数据操作，分别进行10万次，单位是毫秒。最后的运行结果redis10万次读在4-5秒之间，而apc得10万次读只有50毫秒左右。可以看到如果是简单的缓存一些数据，并且这些数据不会变化且命中的话，apc还是能带来一定的效率提升的。</p>
+<p>apc php.ini 配置参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">extension&#x3D; apc.so   &#x2F;&#x2F;添加扩展</span><br><span class="line">apc.enabled&#x3D;1   &#x2F;&#x2F;开启apc</span><br><span class="line">apc.shm_segments&#x3D;1   </span><br><span class="line">apc.shm_size&#x3D;64M ; apc内存的大小,最后的大小需要乘上segments的数量，所以这里一共为apc分配64M   </span><br><span class="line">apc.ttl&#x3D;7200   </span><br><span class="line">apc.user_ttl&#x3D;7200  </span><br><span class="line">apc.enable_cli&#x3D;1 ; 这个如果不开启，则只可以在网页上进行apc操作，不能通过cli进行apc操作</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -443,7 +517,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://jas-wang.fun/2020/07/17/php/" title="PHP性能优化" target="_blank" rel="external">http://jas-wang.fun/2020/07/17/php/</a>
+      <a href="http://jas-wang.fun/2020/07/14/php/" title="PHP性能优化点" target="_blank" rel="external">http://jas-wang.fun/2020/07/14/php/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -489,10 +563,10 @@
   
   <ul class="pager pull-left">
     
-    
-    <li class="next">
-      <a href="/2020/07/17/question/" title="常见问题以及解决办法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    <li class="prev">
+      <a href="/2020/07/15/route/" title="PHP技术学习路线"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
+    
     
     
     <li class="toggle-toc">
