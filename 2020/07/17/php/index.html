@@ -18,15 +18,15 @@
   
   
   <title>PHP性能优化 | jas-wang的个人博客</title>
-  <meta name="description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化(一)  指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchm">
+  <meta name="description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化 指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchmark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP性能优化">
 <meta property="og:url" content="http://jas-wang.fun/2020/07/17/php/index.html">
 <meta property="og:site_name" content="1">
-<meta property="og:description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化(一)  指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchm">
+<meta property="og:description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化 指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchmark">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-17T01:52:46.000Z">
-<meta property="article:modified_time" content="2020-07-17T09:56:54.278Z">
+<meta property="article:modified_time" content="2020-07-20T01:34:26.979Z">
 <meta property="article:author" content="Jas wang">
 <meta property="article:tag" content="php底层优化">
 <meta name="twitter:card" content="summary">
@@ -181,7 +181,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -191,7 +191,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">MySQL性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" rel="tag">php底层优化</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">MySQL性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" rel="tag">php底层优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -201,7 +201,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13px;">MySQL性能优化</a> <a href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" style="font-size: 13px;">php底层优化</a>
+      <a href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13px;">MySQL性能优化</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/php/" style="font-size: 13px;">php</a> <a href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" style="font-size: 13px;">php底层优化</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 13px;">高并发</a>
     </div>
   </div>
 
@@ -210,7 +210,7 @@
   <div class="widget">
     <h3 class="widget-title">时间轴</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -240,6 +240,31 @@
               </p>
               <p class="item-title">
                 <a href="/2020/07/17/php/" class="title">PHP性能优化</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/17/question/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/17/question/" class="title">常见问题以及解决办法</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
@@ -287,7 +312,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#PHP-性能问题的解决方向"><span class="toc-number">1.</span> <span class="toc-text">PHP 性能问题的解决方向</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一、语言级性能优化"><span class="toc-number"></span> <span class="toc-text">一、语言级性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-压力测试工具-Apache-Benchmark-ab"><span class="toc-number">1.</span> <span class="toc-text">1.压力测试工具 Apache Benchmark (ab)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-PHP-自身能力"><span class="toc-number">2.</span> <span class="toc-text">2.PHP 自身能力</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-减少-PHP-魔法函数的使用"><span class="toc-number">3.</span> <span class="toc-text">3.减少 PHP 魔法函数的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-linux-time命令-可以查看PHP文件的执行耗时"><span class="toc-number">4.</span> <span class="toc-text">4.linux time命令-可以查看PHP文件的执行耗时</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-错误抑制符"><span class="toc-number">5.</span> <span class="toc-text">5.错误抑制符 @</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-合理使用内存"><span class="toc-number">6.</span> <span class="toc-text">6.合理使用内存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-避免在循环内做运算"><span class="toc-number">7.</span> <span class="toc-text">7.避免在循环内做运算</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-务必适用带引号字符串做键值"><span class="toc-number">8.</span> <span class="toc-text">8.务必适用带引号字符串做键值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、PHP-周边环境影响"><span class="toc-number"></span> <span class="toc-text">二、PHP 周边环境影响</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-运行环境"><span class="toc-number">1.</span> <span class="toc-text">1.运行环境</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -345,10 +370,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/17/php/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 710(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
 	
 
       </div>
@@ -357,21 +382,58 @@
       
         <p>摘要<br>对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。<br>PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。</p>
 <hr>
-<p>PHP 性能问题的解决方向<br>一、语言级性能优化(一)</p>
-<ul>
+<h5 id="PHP-性能问题的解决方向"><a href="#PHP-性能问题的解决方向" class="headerlink" title="PHP 性能问题的解决方向"></a>PHP 性能问题的解决方向</h5><h4 id="一、语言级性能优化"><a href="#一、语言级性能优化" class="headerlink" title="一、语言级性能优化"></a>一、语言级性能优化</h4><ul>
 <li>指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果</li>
 </ul>
-<p>1.压力测试工具 Apache Benchmark (ab)</p>
-<ul>
+<h5 id="1-压力测试工具-Apache-Benchmark-ab"><a href="#1-压力测试工具-Apache-Benchmark-ab" class="headerlink" title="1.压力测试工具 Apache Benchmark (ab)"></a>1.压力测试工具 Apache Benchmark (ab)</h5><ul>
 <li>ab 是由 Apache 提供的压力测试软件，安装 apache 服务器时会自带该压力测试软件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ./ab -n1000 -c100 http://www.baidu.com/</span><br><span class="line">-n ：总共的请求执行数，缺省是1；</span><br><span class="line">-c： 并发数，缺省是1；</span><br><span class="line">-t：测试所进行的总时间，秒为单位，缺省50000s</span><br><span class="line">-p：POST时的数据文件</span><br><span class="line">-w: 以HTML表的格式输出结果</span><br></pre></td></tr></table></figure></li>
-<li>参考项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Failed requests:        0 &#x2F;&#x2F;失败的请求数量。因网络原因或服务器性能原因，发起的请求并不一定全部成功，通过该数值和Complete requests相除可以计算请求的失败率，作为测试结果的重要参考。</span><br><span class="line">Total transferred:      103314 bytes&#x2F;&#x2F;总共传输的数据量，指的是ab从被测服务器接收到的总数据量，包括index.html的文本内容和请求头信息。</span><br><span class="line">HTML transferred:       22700 bytes &#x2F;&#x2F;从服务器接收到的index.html文件的总大小，等于Document Length＊Complete requests＝227 bytes＊100＝22700 bytes</span><br><span class="line">Requests per second:    91.50 [#&#x2F;sec] (mean) &#x2F;&#x2F;平均(mean)每秒完成的请求数：QPS，这是一个平均值，等于Complete requests&#x2F;Time taken for tests&#x3D;100&#x2F;1.093&#x3D;91.50</span><br><span class="line">Time per request:       109.287 [ms] (mean) &#x2F;&#x2F;从用户角度看，完成一个请求所需要的时间（因用户数量不止一个，服务器完成10个请求，平均每个用户才接收到一个完整的返回，所以该值是下一项数值的10倍。）</span><br><span class="line">Time per request:       10.929 [ms] (mean, across all concurrent requests)&#x2F;&#x2F; 服务器完成一个请求的时间。</span><br><span class="line">Transfer rate:          92.32 [Kbytes&#x2F;sec] received&#x2F;&#x2F;网络传输速度。对于大文件的请求测试，这个值很容易成为系统瓶颈所在。要确定该值是不是瓶颈，需要了解客户端和被测服务器之间的网络情况，包括网络带宽和网卡速度等信息。</span><br></pre></td></tr></table></figure></li>
+<li>参考项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Failed requests:        0 &#x2F;&#x2F;失败的请求数量。因网络原因或服务器性能原因，发起的请求并不一定全部成功，通过该数值和Complete requests相除可以计算请求的失败率，作为测试结果的重要参考。</span><br><span class="line">Total transferred:      103314 bytes&#x2F;&#x2F;总共传输的数据量，指的是ab从被测服务器接收到的总数据量，包括index.html的文本内容和请求头信息。</span><br><span class="line">HTML transferred:       22700 bytes &#x2F;&#x2F;从服务器接收到的index.html文件的总大小，等于Document Length＊Complete requests＝227 bytes＊100＝22700 bytes</span><br><span class="line">Requests per second:    91.50 [#&#x2F;sec] (mean) &#x2F;&#x2F;平均(mean)每秒完成的请求数：QPS，这是一个平均值，等于Complete requests&#x2F;Time taken for tests&#x3D;100&#x2F;1.093&#x3D;91.50</span><br><span class="line">Time per request:       109.287 [ms] (mean) &#x2F;&#x2F;从用户角度看，完成一个请求所需要的时间（因用户数量不止一个，服务器完成10个请求，平均每个用户才接收到一个完整的返回，所以该值是下一项数值的10倍。）</span><br><span class="line">Time per request:       10.929 [ms] (mean, across all concurrent requests)&#x2F;&#x2F; 服务器完成一个请求的时间。</span><br><span class="line">Transfer rate:          92.32 [Kbytes&#x2F;sec] received&#x2F;&#x2F;网络传输速度。对于大文件的请求测试，这个值很容易成为系统瓶颈所在。要确定该值是不是瓶颈，需要了解客户端和被测服务器之间的网络情况，包括网络带宽和网卡速度等信息。</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>2.PHP 自身能力</p>
+<h5 id="2-PHP-自身能力"><a href="#2-PHP-自身能力" class="headerlink" title="2.PHP 自身能力"></a>2.PHP 自身能力</h5><p>少写代码，多用 PHP 自身能力</p>
 <ul>
-<li>性能问题：自身代码冗余较多，可读性不佳，并且性能低。</li>
-<li>为什么性能低：PHP 代码需要编译解释为底层语言，这一过程每次请求都会处理一遍，开销大。</li>
-<li>好的方法：多实用 PHP 内置变量、常量、函数。</li>
+<li>自身代码冗余较多，可读性不佳，并且性能低。为什么性能低：PHP 代码需要编译解释为底层语言，这一过程每次请求都会处理一遍，开销大。多使用 PHP 内置变量、常量、函数。</li>
 </ul>
+<p>PHP 代码运行流程</p>
+<ul>
+<li>php文件 -&gt; zend引擎 -&gt; [Parser] -&gt; Opcodes(要被执行的代码,目前很多 php 的缓存服务使用的都是 opcode，节省了扫描和解析的过程，提升速度。) -&gt; [Exec] =&gt; Output </li>
+</ul>
+<p>PHP 内置函数之间的性能测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array_key_exists() 和 isset()</span><br><span class="line">php 执行效率上： isset &gt; array_key_exists</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当数组个数为10时，两者差异就体现出来了，isset 速度要快近10倍，但不是很明显，而且对于变量是否存在，两者之间的差异没有太大，当变量存在时运行更快，但是这种趋势在是非常微弱的。</li>
+<li>使用 array_key_exists 随着循环的次数增加，程序运行的时间增加量是成几何级数增加的，当一个数组元素个数超过1000时运行速度就非常慢了。</li>
+<li>由于 isset 属于 php 中的语言结构，而 array_key_exists 是函数，所以 isset 更快。</li>
+</ul>
+<h5 id="3-减少-PHP-魔法函数的使用"><a href="#3-减少-PHP-魔法函数的使用" class="headerlink" title="3.减少 PHP 魔法函数的使用"></a>3.减少 PHP 魔法函数的使用</h5><p>PHP自身提供的魔法函数，性能并不是很好 ,是为了给 PHP 程序员省事，PHP 语言为你做了很多，所以尽量减少魔法函数的使用。</p>
+<h5 id="4-linux-time命令-可以查看PHP文件的执行耗时"><a href="#4-linux-time命令-可以查看PHP文件的执行耗时" class="headerlink" title="4.linux time命令-可以查看PHP文件的执行耗时"></a>4.linux time命令-可以查看PHP文件的执行耗时</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost wwwroot]# time php index.php</span><br><span class="line">real	0m0.070s</span><br><span class="line">user	0m0.050s (关注这个)</span><br><span class="line">sys	0m0.020s</span><br></pre></td></tr></table></figure>
+<p>在上面运行的结果中，我们只关注user的那一行时间，关于这三个时间的解释，可以参考下面的解释：</p>
+<ul>
+<li>real 时间是指挂钟时间，也就是命令开始执行到结束的时间。这个短时间包括其他进程所占用的时间片，和进程被阻塞时所花费的时间。</li>
+<li>user 时间是指进程花费在用户模式中的CPU时间，这是唯一真正用于执行进程所花费的时间，其他进程和花费阻塞状态中的时间没有计算在内。</li>
+<li>sys  时间是指花费在内核模式中的CPU时间，代表在内核中执系统调用所花费的时间，这也是真正由进程使用的CPU时间。</li>
+</ul>
+<h5 id="5-错误抑制符"><a href="#5-错误抑制符" class="headerlink" title="5.错误抑制符 @"></a>5.错误抑制符 @</h5><p>@的实际逻辑：在代码开始前、结束后，增加 Opcode，忽略报错<br>性能测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;at.php</span><br><span class="line">file_get_contens(&#39;xxx&#39;); &#x2F;&#x2F; 直接获取一个不存在文件的内容，此时会报错</span><br><span class="line"></span><br><span class="line">方便查看执行过程我们可以使用 vld 扩展执行at.php，查看执行过程的完整 Opcode</span><br><span class="line">php -dvld.active&#x3D;1 -dvld.execute&#x3D;0 at.php</span><br><span class="line"># 不加@错误抑制符时Opcode的执行情况</span><br><span class="line">SEND_VAL</span><br><span class="line">DO_FCALL</span><br><span class="line">RETURN</span><br><span class="line"># 加@错误抑制符时Opcode的执行情况</span><br><span class="line">BEGIN_SILENCE</span><br><span class="line">SEND_VAL</span><br><span class="line">DO_FCALL</span><br><span class="line">END_SILENCE</span><br><span class="line">RETURN</span><br></pre></td></tr></table></figure>
+<p>建议：可以使用 try throw 方式进行错误控制</p>
+<h5 id="6-合理使用内存"><a href="#6-合理使用内存" class="headerlink" title="6.合理使用内存"></a>6.合理使用内存</h5><p>PHP 有内存回收机制保底，但也要小心使用内存 利用 unset()及时释放不使用的内存</p>
+<h5 id="7-避免在循环内做运算"><a href="#7-避免在循环内做运算" class="headerlink" title="7.避免在循环内做运算"></a>7.避免在循环内做运算</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">优化前</span><br><span class="line">$str &#x3D; &quot;hello world&quot;;</span><br><span class="line">for ($i&#x3D;0; $i &lt; strlen($str); $i++) &#123;</span><br><span class="line">    # code...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 其中strlen()方法会在每次循环时计算一次</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 进行优化</span><br><span class="line">$str &#x3D; &quot;hello world&quot;;</span><br><span class="line">$strlen &#x3D; strlen($str);</span><br><span class="line">for ($i&#x3D;0; $i &lt; $strlen; $i++) &#123;</span><br><span class="line">    # code...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="8-务必适用带引号字符串做键值"><a href="#8-务必适用带引号字符串做键值" class="headerlink" title="8.务必适用带引号字符串做键值"></a>8.务必适用带引号字符串做键值</h5><p>PHP 会将没有引号的键值当做常量，产生查找常量的开销</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define(&#39;key&#39;, &#39;test&#39;);</span><br><span class="line"></span><br><span class="line">$array &#x3D; array(</span><br><span class="line">    &#39;key&#39; &#x3D;&gt; &#39;1&#39;,</span><br><span class="line">    &#39;test&#39; &#x3D;&gt; &#39;2&#39;</span><br><span class="line">);</span><br><span class="line">echo $array[&quot;key&quot;] . &#39;\n&#39;; &#x2F;&#x2F; 输出 1</span><br><span class="line">echo $array[key] . &#39;\n&#39;; &#x2F;&#x2F; 输出 2</span><br></pre></td></tr></table></figure>
+<p>当时用$array[key]时，程序也把 key 作为常量去查找，当查找到时，获取到常量的值；当没查找到时，再到数组内部，将其作为键 key 字符串进行解析</p>
+<h4 id="二、PHP-周边环境影响"><a href="#二、PHP-周边环境影响" class="headerlink" title="二、PHP 周边环境影响"></a>二、PHP 周边环境影响</h4><h5 id="1-运行环境"><a href="#1-运行环境" class="headerlink" title="1.运行环境"></a>1.运行环境</h5><ul>
+<li>Linux运行环境</li>
+<li>文件存储 （读写磁盘，数据库，内存，网络数据）</li>
+<li>数据库</li>
+<li>缓存 【内存，PHP缓存技术，redis】</li>
+<li>网络</li>
+</ul>
+<p>优化方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-读写内存 &lt;&lt;(远小于) 读写数据库[基于文件系统，操作本地磁盘] &lt;(小于) 读写磁盘 &lt; 读写网络数据</span><br><span class="line"></span><br><span class="line">-数据库会使用内存作为缓存，将其热数据先缓存在内存中，异步地写入到数据库 &#x3D;&gt; 数据库介于内存和磁盘之间</span><br><span class="line"></span><br><span class="line">-网络数据：通过socket发起，socket使用的是本地的文件句柄，磁盘操作。受网络延迟影响， 延迟大时远远</span><br><span class="line">小于读写磁盘，延迟小时和读写磁盘差不多。</span><br></pre></td></tr></table></figure>
+<p>建议：尽可能多的使用读写数据库、读写内存，尽量规避操作磁盘和操作网络数据。</p>
 
       
     </div>
@@ -429,7 +491,7 @@
     
     
     <li class="next">
-      <a href="/2020/07/16/mysql/" title="MySQL性能优化"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/07/17/question/" title="常见问题以及解决办法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

@@ -18,15 +18,15 @@
   
   
   <title>MySQL性能优化 | jas-wang的个人博客</title>
-  <meta name="description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化(一)  指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchm">
+  <meta name="description" content="摘要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL性能优化">
 <meta property="og:url" content="http://jas-wang.fun/2020/07/16/mysql/index.html">
 <meta property="og:site_name" content="1">
-<meta property="og:description" content="摘要对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。  PHP 性能问题的解决方向一、语言级性能优化(一)  指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果  1.压力测试工具 Apache Benchm">
+<meta property="og:description" content="摘要">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-16T10:52:46.000Z">
-<meta property="article:modified_time" content="2020-07-17T10:08:13.988Z">
+<meta property="article:modified_time" content="2020-07-20T00:41:48.668Z">
 <meta property="article:author" content="Jas wang">
 <meta property="article:tag" content="MySQL性能优化">
 <meta name="twitter:card" content="summary">
@@ -181,7 +181,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -191,7 +191,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">MySQL性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" rel="tag">php底层优化</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">MySQL性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" rel="tag">php底层优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -201,7 +201,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13px;">MySQL性能优化</a> <a href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" style="font-size: 13px;">php底层优化</a>
+      <a href="/tags/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13px;">MySQL性能优化</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/php/" style="font-size: 13px;">php</a> <a href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" style="font-size: 13px;">php底层优化</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 13px;">高并发</a>
     </div>
   </div>
 
@@ -210,7 +210,7 @@
   <div class="widget">
     <h3 class="widget-title">时间轴</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -240,6 +240,31 @@
               </p>
               <p class="item-title">
                 <a href="/2020/07/17/php/" class="title">PHP性能优化</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/17/question/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/17/question/" class="title">常见问题以及解决办法</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
@@ -345,33 +370,17 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/16/mysql/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 710(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>摘要<br>对线上站点做压力测试的时候，我们一定要将请求数和并发数，特别是并发数要设置的比较低，我们不能对线上的网站造成压力问题，不管是自己的还是别人的。<br>PHP性能问题一般不会超过占整个项目性能的50%，一般在30%~40%。</p>
-<hr>
-<p>PHP 性能问题的解决方向<br>一、语言级性能优化(一)</p>
-<ul>
-<li>指的是PHP语法基本功能，这部分优化比较简单易见、快速可行，比较快速看到效果</li>
-</ul>
-<p>1.压力测试工具 Apache Benchmark (ab)</p>
-<ul>
-<li>ab 是由 Apache 提供的压力测试软件，安装 apache 服务器时会自带该压力测试软件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ./ab -n1000 -c100 http://www.baidu.com/</span><br><span class="line">-n ：总共的请求执行数，缺省是1；</span><br><span class="line">-c： 并发数，缺省是1；</span><br><span class="line">-t：测试所进行的总时间，秒为单位，缺省50000s</span><br><span class="line">-p：POST时的数据文件</span><br><span class="line">-w: 以HTML表的格式输出结果</span><br></pre></td></tr></table></figure></li>
-<li>参考项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Failed requests:        0 &#x2F;&#x2F;失败的请求数量。因网络原因或服务器性能原因，发起的请求并不一定全部成功，通过该数值和Complete requests相除可以计算请求的失败率，作为测试结果的重要参考。</span><br><span class="line">Total transferred:      103314 bytes&#x2F;&#x2F;总共传输的数据量，指的是ab从被测服务器接收到的总数据量，包括index.html的文本内容和请求头信息。</span><br><span class="line">HTML transferred:       22700 bytes &#x2F;&#x2F;从服务器接收到的index.html文件的总大小，等于Document Length＊Complete requests＝227 bytes＊100＝22700 bytes</span><br><span class="line">Requests per second:    91.50 [#&#x2F;sec] (mean) &#x2F;&#x2F;平均(mean)每秒完成的请求数：QPS，这是一个平均值，等于Complete requests&#x2F;Time taken for tests&#x3D;100&#x2F;1.093&#x3D;91.50</span><br><span class="line">Time per request:       109.287 [ms] (mean) &#x2F;&#x2F;从用户角度看，完成一个请求所需要的时间（因用户数量不止一个，服务器完成10个请求，平均每个用户才接收到一个完整的返回，所以该值是下一项数值的10倍。）</span><br><span class="line">Time per request:       10.929 [ms] (mean, across all concurrent requests)&#x2F;&#x2F; 服务器完成一个请求的时间。</span><br><span class="line">Transfer rate:          92.32 [Kbytes&#x2F;sec] received&#x2F;&#x2F;网络传输速度。对于大文件的请求测试，这个值很容易成为系统瓶颈所在。要确定该值是不是瓶颈，需要了解客户端和被测服务器之间的网络情况，包括网络带宽和网卡速度等信息。</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>2.PHP 自身能力</p>
-<ul>
-<li>性能问题：自身代码冗余较多，可读性不佳，并且性能低。</li>
-<li>为什么性能低：PHP 代码需要编译解释为底层语言，这一过程每次请求都会处理一遍，开销大。</li>
-<li>好的方法：多实用 PHP 内置变量、常量、函数。</li>
-</ul>
+        <p>摘要 </p>
 
       
     </div>
@@ -428,7 +437,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/07/17/php/" title="PHP性能优化"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/07/17/question/" title="常见问题以及解决办法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     

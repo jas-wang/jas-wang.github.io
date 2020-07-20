@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://jas-wang.fun/2020/07/17/php/</loc>
+    <lastmod>2020-07-20</lastmod>
+  </url>  <url>
+    <loc>http://jas-wang.fun/2020/07/17/question/</loc>
+    <lastmod>2020-07-20</lastmod>
+  </url>  <url>
     <loc>http://jas-wang.fun/2020/07/16/mysql/</loc>
-    <lastmod>2020-07-17</lastmod>
+    <lastmod>2020-07-20</lastmod>
   </url>  <url>
     <loc>http://jas-wang.fun/mysql/index.html</loc>
-    <lastmod>2020-07-17</lastmod>
-  </url>  <url>
-    <loc>http://jas-wang.fun/2020/07/17/php/</loc>
     <lastmod>2020-07-17</lastmod>
   </url>
 </urlset>
