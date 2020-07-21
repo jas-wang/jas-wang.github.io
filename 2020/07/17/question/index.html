@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>常见问题以及解决办法【todo】 | jas-wang的个人博客</title>
-  <meta name="description" content="摘要这里收集了PHP中经常遇到的问题和解决的办法,遇到了就会添加进来  1.高并发下如何防止修改同一条数据解决办法：todo 2.Redis相比memcached有哪些优势？ memcached所有的值均是简单的字符串，Redis作为其替代者，支持更为丰富的数据类型  Redis的速度比memcached快很多  Redis可以持久化其数据  Redis支持数据的备份，即master-slave模">
+  <title>常见问题以及解决办法【持续更新中...】 | jas-wang的个人博客</title>
+  <meta name="description" content="摘要这里收集了PHP中经常遇到的问题和解决的办法,遇到了就会添加进来  高并发下如何防止修改同一条数据？解决方案：  使用悲观锁  悲观锁本质是当前只有一个线程执行操作，排斥外部请求的修改。遇到加锁的状态，就必须等待。结束了唤醒其他线程进行处理。虽然此方案的确解决了数据安全的问题，但是，我们的场景是“高并发”。也就是说，会很多这样的修改请求，每个请求都需要等待“锁”，某些线程可能永远都没有机会抢到">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见问题以及解决办法【todo】">
+<meta property="og:title" content="常见问题以及解决办法【持续更新中...】">
 <meta property="og:url" content="http://jas-wang.fun/2020/07/17/question/index.html">
 <meta property="og:site_name" content="1">
-<meta property="og:description" content="摘要这里收集了PHP中经常遇到的问题和解决的办法,遇到了就会添加进来  1.高并发下如何防止修改同一条数据解决办法：todo 2.Redis相比memcached有哪些优势？ memcached所有的值均是简单的字符串，Redis作为其替代者，支持更为丰富的数据类型  Redis的速度比memcached快很多  Redis可以持久化其数据  Redis支持数据的备份，即master-slave模">
+<meta property="og:description" content="摘要这里收集了PHP中经常遇到的问题和解决的办法,遇到了就会添加进来  高并发下如何防止修改同一条数据？解决方案：  使用悲观锁  悲观锁本质是当前只有一个线程执行操作，排斥外部请求的修改。遇到加锁的状态，就必须等待。结束了唤醒其他线程进行处理。虽然此方案的确解决了数据安全的问题，但是，我们的场景是“高并发”。也就是说，会很多这样的修改请求，每个请求都需要等待“锁”，某些线程可能永远都没有机会抢到">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-17T01:52:46.000Z">
-<meta property="article:modified_time" content="2020-07-21T02:23:45.720Z">
+<meta property="article:modified_time" content="2020-07-21T06:30:53.087Z">
 <meta property="article:author" content="Jas wang">
 <meta property="article:tag" content="php">
 <meta property="article:tag" content="mysql">
@@ -266,7 +266,7 @@
                 <a class="category-link" href="/categories/PHP/">PHP</a>
               </p>
               <p class="item-title">
-                <a href="/2020/07/17/question/" class="title">常见问题以及解决办法【todo】</a>
+                <a href="/2020/07/17/question/" class="title">常见问题以及解决办法【持续更新中...】</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
@@ -364,7 +364,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-高并发下如何防止修改同一条数据"><span class="toc-number">1.</span> <span class="toc-text">1.高并发下如何防止修改同一条数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Redis相比memcached有哪些优势？"><span class="toc-number">2.</span> <span class="toc-text">2.Redis相比memcached有哪些优势？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Redis提供了哪几种持久化方式？"><span class="toc-number">3.</span> <span class="toc-text">3.Redis提供了哪几种持久化方式？</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#高并发下如何防止修改同一条数据？"><span class="toc-number">1.</span> <span class="toc-text">高并发下如何防止修改同一条数据？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Redis相比memcached有哪些优势？"><span class="toc-number">2.</span> <span class="toc-text">Redis相比memcached有哪些优势？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Redis提供了哪几种持久化方式？"><span class="toc-number">3.</span> <span class="toc-text">Redis提供了哪几种持久化方式？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多线程写入同一个文件的时候，如何解决“线程安全”的问题？"><span class="toc-number">4.</span> <span class="toc-text">多线程写入同一个文件的时候，如何解决“线程安全”的问题？</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -378,7 +378,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      常见问题以及解决办法【todo】
+      常见问题以及解决办法【持续更新中...】
     </h1>
   
 
@@ -414,7 +414,7 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2020/07/17/question/" class="leancloud_visitors"  data-flag-title="常见问题以及解决办法【todo】">
+    	<span id="/2020/07/17/question/" class="leancloud_visitors"  data-flag-title="常见问题以及解决办法【持续更新中...】">
 			<span class="leancloud-visitors-count">0</span>
 		</span>
     </span>
@@ -422,10 +422,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/17/question/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 781(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.8k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
 	
 
       </div>
@@ -434,8 +434,19 @@
       
         <p>摘要<br>这里收集了PHP中经常遇到的问题和解决的办法,遇到了就会添加进来</p>
 <hr>
-<h5 id="1-高并发下如何防止修改同一条数据"><a href="#1-高并发下如何防止修改同一条数据" class="headerlink" title="1.高并发下如何防止修改同一条数据"></a>1.高并发下如何防止修改同一条数据</h5><p>解决办法：todo</p>
-<h5 id="2-Redis相比memcached有哪些优势？"><a href="#2-Redis相比memcached有哪些优势？" class="headerlink" title="2.Redis相比memcached有哪些优势？"></a>2.Redis相比memcached有哪些优势？</h5><ul>
+<h5 id="高并发下如何防止修改同一条数据？"><a href="#高并发下如何防止修改同一条数据？" class="headerlink" title="高并发下如何防止修改同一条数据？"></a>高并发下如何防止修改同一条数据？</h5><p>解决方案：</p>
+<ul>
+<li>使用悲观锁</li>
+</ul>
+<p>悲观锁本质是当前只有一个线程执行操作，排斥外部请求的修改。遇到加锁的状态，就必须等待。<br>结束了唤醒其他线程进行处理。虽然此方案的确解决了数据安全的问题，<br>但是，我们的场景是“高并发”。也就是说，会很多这样的修改请求，每个请求都需要等待“锁”，<br>某些线程可能永远都没有机会抢到这个“锁”，这种请求就会死在那里。<br>同时，这种请求会很多，瞬间增大系统的平均响应时间，结果是可用连接数被耗尽，系统陷入异常。<br>可以举个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">使用MySQL的事务，锁住操作的行</span><br><span class="line">&#x2F;&#x2F;库存是否大于0</span><br><span class="line">mysqli_query($conn,&quot;BEGIN&quot;);  &#x2F;&#x2F;开始事务</span><br><span class="line">$sql&#x3D;&quot;select number from xxxx FOR UPDATE&quot;;&#x2F;&#x2F;此时这条记录被锁住,其它事务必须等待此次事务提交后才能执行</span><br><span class="line">$rs&#x3D;mysqli_query($conn,$sql);</span><br><span class="line">$row&#x3D;$rs-&gt;fetch_assoc();</span><br><span class="line">if($row[&#39;number&#39;]&gt;0)&#123;</span><br><span class="line">    &#x2F;&#x2F;库存减少</span><br><span class="line">    $sql&#x3D;&quot;update ih_store set number&#x3D;number-&#123;$number&#125; where sku_id&#x3D;&#39;$sku_id&#39;&quot;;</span><br><span class="line">    $store_rs&#x3D;mysqli_query($conn,$sql);</span><br><span class="line">    if($store_rs)&#123;</span><br><span class="line">      echo &#39;库存减少成功&#39;;    </span><br><span class="line">        mysqli_query($conn,&quot;COMMIT&quot;);&#x2F;&#x2F;事务提交即解锁</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      echo &#39;库存减少失败&#39;;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  echo &#39;库存不够&#39;;</span><br><span class="line">    mysqli_query($conn,&quot;ROLLBACK&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用乐观锁<br>乐观锁（ Optimistic Locking ） 相对悲观锁而言，乐观锁机制采取了更加宽松的加锁机制。<br>悲观锁大多数情况下依靠数据库的锁机制实现，以保证操作最大程度的独占性。<br>但随之而来的就是数据库性能的大量开销，特别是对长事务而言，这样的开销往往无法承受。而乐观锁机制在一定程度上解决了这个问题。<br>乐观锁，大多是基于数据版本（ Version ）记录机制实现。何谓数据版本？即为数据增加一个版本标识，在基于数据库表的版本解决方案中，<br>一般是通过为数据库表增加一个 “version” 字段来实现。读取出数据时，将此版本号一同读出，之后更新时，对此版本号加一。<br>此时，将提交数据的版本数据与数据库表对应记录的当前版本信息进行比对，如果提交的数据版本号大于数据库表当前版本号，<br>则予以更新，否则不允许更新。<br>有很多软件和服务都“乐观锁”功能的支持，例如Redis中的watch就是其中之一。通过这个实现，我们保证了数据的安全。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$redis &#x3D; new redis();</span><br><span class="line"> $result &#x3D; $redis-&gt;connect(&#39;127.0.0.1&#39;, 6379);</span><br><span class="line"> echo $mywatchkey &#x3D; $redis-&gt;get(&quot;mywatchkey&quot;);</span><br><span class="line"></span><br><span class="line">$rob_total &#x3D; 100;   &#x2F;&#x2F;抢购数量</span><br><span class="line">if($mywatchkey&lt;&#x3D;$rob_total)&#123;</span><br><span class="line">    $redis-&gt;watch(&quot;mywatchkey&quot;);</span><br><span class="line">    $redis-&gt;multi(); &#x2F;&#x2F;在当前连接上启动一个新的事务。</span><br><span class="line">    &#x2F;&#x2F;插入抢购数据</span><br><span class="line">    $redis-&gt;set(&quot;mywatchkey&quot;,$mywatchkey+1);</span><br><span class="line">    $rob_result &#x3D; $redis-&gt;exec();</span><br><span class="line">    if($rob_result)&#123;</span><br><span class="line">         $redis-&gt;hSet(&quot;watchkeylist&quot;,&quot;user_&quot;.mt_rand(1, 9999),$mywatchkey);</span><br><span class="line">        $mywatchlist &#x3D; $redis-&gt;hGetAll(&quot;watchkeylist&quot;);</span><br><span class="line">        echo &quot;抢购成功！&lt;br&#x2F;&gt;&quot;;</span><br><span class="line">     </span><br><span class="line">        echo &quot;剩余数量：&quot;.($rob_total-$mywatchkey-1).&quot;&lt;br&#x2F;&gt;&quot;;</span><br><span class="line">        echo &quot;用户列表：&lt;pre&gt;&quot;;</span><br><span class="line">        var_dump($mywatchlist);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">          $redis-&gt;hSet(&quot;watchkeylist&quot;,&quot;user_&quot;.mt_rand(1, 9999),&#39;meiqiangdao&#39;);</span><br><span class="line">        echo &quot;手气不好，再抢购！&quot;;exit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="Redis相比memcached有哪些优势？"><a href="#Redis相比memcached有哪些优势？" class="headerlink" title="Redis相比memcached有哪些优势？"></a>Redis相比memcached有哪些优势？</h5><p>解决方案：</p>
+<ul>
 <li><p>memcached所有的值均是简单的字符串，Redis作为其替代者，支持更为丰富的数据类型</p>
 </li>
 <li><p>Redis的速度比memcached快很多</p>
@@ -445,7 +456,7 @@
 <li><p>Redis支持数据的备份，即master-slave模式的数据备份。</p>
 </li>
 </ul>
-<h5 id="3-Redis提供了哪几种持久化方式？"><a href="#3-Redis提供了哪几种持久化方式？" class="headerlink" title="3.Redis提供了哪几种持久化方式？"></a>3.Redis提供了哪几种持久化方式？</h5><p> Redis主要提供了两种持久化机制：RDB和AOF；</p>
+<h5 id="Redis提供了哪几种持久化方式？"><a href="#Redis提供了哪几种持久化方式？" class="headerlink" title="Redis提供了哪几种持久化方式？"></a>Redis提供了哪几种持久化方式？</h5><p>解决方案：<br> Redis主要提供了两种持久化机制：RDB和AOF；</p>
 <ul>
 <li><p>RDB</p>
 <p>默认开启，会按照配置的指定时间将内存中的数据快照到磁盘中，创建一个dump.rdb文件，Redis启动时再恢复到内存中。</p>
@@ -460,7 +471,8 @@
 <p>开启持久化缓存机制，对性能会有一定的影响，特别是当设置的内存满了的时候，更是下降到几百reqs/s。所以如果只是用来做缓存的话，可以关掉持久化。</p>
 </li>
 </ul>
-
+<h5 id="多线程写入同一个文件的时候，如何解决“线程安全”的问题？"><a href="#多线程写入同一个文件的时候，如何解决“线程安全”的问题？" class="headerlink" title="多线程写入同一个文件的时候，如何解决“线程安全”的问题？"></a>多线程写入同一个文件的时候，如何解决“线程安全”的问题？</h5><p>解决方案：<br> 首先什么是线程安全？多个线程同时运行同一段代码，如果每次运行结果和单线程运行的结果是一样的，结果和预期相同，就是线程安全的）。<br> 如果是MySQL数据库，可以使用它自带的锁机制很好的解决问题。<br> 但是，在大规模并发的场景中，是不推荐使用MySQL的。<br>举例如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (flock($file,LOCK_EX)) &#123;</span><br><span class="line">  fwrite($file,&#39;write something&#39;);</span><br><span class="line">  flock($file,LOCK_UN);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  echo &#39;locked&#39;;</span><br><span class="line">&#125;</span><br><span class="line">fclose($file);</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -469,7 +481,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://jas-wang.fun/2020/07/17/question/" title="常见问题以及解决办法【todo】" target="_blank" rel="external">http://jas-wang.fun/2020/07/17/question/</a>
+      <a href="http://jas-wang.fun/2020/07/17/question/" title="常见问题以及解决办法【持续更新中...】" target="_blank" rel="external">http://jas-wang.fun/2020/07/17/question/</a>
     </li>
     
     <li class="post-copyright-license">
