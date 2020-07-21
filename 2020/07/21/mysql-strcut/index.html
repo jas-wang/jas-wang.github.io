@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>MySQL性能优化-数据库结构优化 | jas-wang的个人博客</title>
+  <meta name="description" content="摘要   Mysql性能优化就算通过合理安排资源，调整系统参数使MYSQL运行更快，更节省资源。MYSQL性能优化包括查询速度优化，更新速度优化，mysql服务器优化等等。此处，介绍以下几个优化。包含，性能优化的介绍，查询优化，数据库结构优化，mysql服务器优化。 Mysql优化，一方面是找出系统的瓶颈，提高mysql数据库整体的性能，另外一个方面需要合理的结构设计和参数调整，以提高用户操作响应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL性能优化-数据库结构优化">
+<meta property="og:url" content="http://jas-wang.fun/2020/07/21/mysql-strcut/index.html">
+<meta property="og:site_name" content="1">
+<meta property="og:description" content="摘要   Mysql性能优化就算通过合理安排资源，调整系统参数使MYSQL运行更快，更节省资源。MYSQL性能优化包括查询速度优化，更新速度优化，mysql服务器优化等等。此处，介绍以下几个优化。包含，性能优化的介绍，查询优化，数据库结构优化，mysql服务器优化。 Mysql优化，一方面是找出系统的瓶颈，提高mysql数据库整体的性能，另外一个方面需要合理的结构设计和参数调整，以提高用户操作响应">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-21T02:00:46.000Z">
+<meta property="article:modified_time" content="2020-07-21T02:10:58.713Z">
+<meta property="article:author" content="Jas wang">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="性能优化">
+<meta property="article:tag" content="数据库结构优化">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://jas-wang.fun/2020/07/21/mysql-strcut/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="1" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">jas-wang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> chengdu, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">时间轴</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jas-wang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" rel="tag">PHP学习路线</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" rel="tag">php底层优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" rel="tag">性能分析工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96/" rel="tag">数据库结构优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%EF%BC%8CSQL%E4%BC%98%E5%8C%96/" rel="tag">索引优化，SQL优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="tag">高并发</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/MySQL/" style="font-size: 14px;">MySQL</a> <a href="/tags/PHP%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 13px;">PHP学习路线</a> <a href="/tags/mysql/" style="font-size: 13px;">mysql</a> <a href="/tags/php/" style="font-size: 14px;">php</a> <a href="/tags/php%E5%BA%95%E5%B1%82%E4%BC%98%E5%8C%96/" style="font-size: 13px;">php底层优化</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 14px;">性能优化</a> <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">性能分析工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96/" style="font-size: 13px;">数据库结构优化</a> <a href="/tags/%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%EF%BC%8CSQL%E4%BC%98%E5%8C%96/" style="font-size: 13px;">索引优化，SQL优化</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 13px;">高并发</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">时间轴</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/21/mysql-strcut/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/MySQL/">MySQL</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/21/mysql-strcut/" class="title">MySQL性能优化-数据库结构优化</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-21T02:00:46.000Z" itemprop="datePublished">2020-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/21/mysql-index/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/MySQL/">MySQL</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/21/mysql-index/" class="title">MySQL性能优化-索引优化</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-21T01:00:46.000Z" itemprop="datePublished">2020-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/20/php-xhprof/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/20/php-xhprof/" class="title">PHP性能分析工具——xhprof</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-20T01:52:46.000Z" itemprop="datePublished">2020-07-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/17/question/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/17/question/" class="title">常见问题以及解决办法【todo】</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-17T01:52:46.000Z" itemprop="datePublished">2020-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/07/15/route/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/07/15/route/" class="title">PHP技术学习路线</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-15T01:52:46.000Z" itemprop="datePublished">2020-07-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#选择合适的数据类型"><span class="toc-number">1.</span> <span class="toc-text">选择合适的数据类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表的范式化和反范式化"><span class="toc-number">2.</span> <span class="toc-text">表的范式化和反范式化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据库的拆分过程基本遵循的顺序是：垂直拆分、读写分离、水平拆分-也称之为分库分表-。"><span class="toc-number">3.</span> <span class="toc-text">数据库的拆分过程基本遵循的顺序是：垂直拆分、读写分离、水平拆分(也称之为分库分表)。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#垂直拆分"><span class="toc-number">4.</span> <span class="toc-text">垂直拆分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1、什么是垂直拆分？"><span class="toc-number">5.</span> <span class="toc-text">1、什么是垂直拆分？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、什么时候使用垂直拆分？"><span class="toc-number">6.</span> <span class="toc-text">2、什么时候使用垂直拆分？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、垂直拆分的好处？"><span class="toc-number">7.</span> <span class="toc-text">3、垂直拆分的好处？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、垂直拆分的另外2种用途？"><span class="toc-number">8.</span> <span class="toc-text">4、垂直拆分的另外2种用途？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、读写分离"><span class="toc-number">9.</span> <span class="toc-text">二、读写分离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1、什么是读写分离？"><span class="toc-number">10.</span> <span class="toc-text">1、什么是读写分离？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、为什么需要使用读写分离？"><span class="toc-number">11.</span> <span class="toc-text">2、为什么需要使用读写分离？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、数据库进行了读写分离配置后-开发人员需要做哪些事情？"><span class="toc-number">12.</span> <span class="toc-text">3、数据库进行了读写分离配置后,开发人员需要做哪些事情？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、读写分离的优点？"><span class="toc-number">13.</span> <span class="toc-text">4、读写分离的优点？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、读写分离技术所面临的问题有哪些？"><span class="toc-number">14.</span> <span class="toc-text">5、读写分离技术所面临的问题有哪些？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#主从数据同步延迟的问题"><span class="toc-number">15.</span> <span class="toc-text">主从数据同步延迟的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#事务问题"><span class="toc-number">16.</span> <span class="toc-text">事务问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#综上所述："><span class="toc-number">17.</span> <span class="toc-text">综上所述：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、水平拆分"><span class="toc-number">18.</span> <span class="toc-text">三、水平拆分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1、什么是水平拆分（分表分库）？"><span class="toc-number">19.</span> <span class="toc-text">1、什么是水平拆分（分表分库）？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、为什么需要进行分表分库？"><span class="toc-number">20.</span> <span class="toc-text">2、为什么需要进行分表分库？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、分表分库的使用场景？"><span class="toc-number">21.</span> <span class="toc-text">3、分表分库的使用场景？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、分库分表的好处？"><span class="toc-number">22.</span> <span class="toc-text">4、分库分表的好处？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、分库分表的问题"><span class="toc-number">23.</span> <span class="toc-text">5、分库分表的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分布式id"><span class="toc-number">24.</span> <span class="toc-text">分布式id</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分布式事务"><span class="toc-number">25.</span> <span class="toc-text">分布式事务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态扩容"><span class="toc-number">26.</span> <span class="toc-text">动态扩容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#问题：分库分表之后如何实现联合查询？"><span class="toc-number">27.</span> <span class="toc-text">问题：分库分表之后如何实现联合查询？</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-mysql-strcut" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL性能优化-数据库结构优化
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/07/21/mysql-strcut/" class="article-date">
+	  <time datetime="2020-07-21T02:00:46.000Z" itemprop="datePublished">2020-07-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/MySQL/" rel="tag">MySQL</a>, <a class="article-tag-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a>, <a class="article-tag-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96/" rel="tag">数据库结构优化</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2020/07/21/mysql-strcut/" class="leancloud_visitors"  data-flag-title="MySQL性能优化-数据库结构优化">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/21/mysql-strcut/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.5k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 12(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>摘要 </p>
+<ul>
+<li>Mysql性能优化就算通过合理安排资源，调整系统参数使MYSQL运行更快，更节省资源。MYSQL性能优化包括查询速度优化，更新速度优化，mysql服务器优化等等。此处，介绍以下几个优化。包含，性能优化的介绍，查询优化，数据库结构优化，mysql服务器优化。</li>
+<li>Mysql优化，一方面是找出系统的瓶颈，提高mysql数据库整体的性能，另外一个方面需要合理的结构设计和参数调整，以提高用户操作响应的速度。同时还要尽可能节省系统资源，以便系统可以提供更大负荷的服务。mysql数据库优化是多方面的，原则是减少系统的瓶颈，减少资源的占用，增加系统反应的速度</li>
+</ul>
+<hr>
+<h5 id="选择合适的数据类型"><a href="#选择合适的数据类型" class="headerlink" title="选择合适的数据类型"></a>选择合适的数据类型</h5><p> 数据类型的选择，重点在于合适二字，如何确定选择的数据类型是否合适？</p>
+<ul>
+<li>使用可以存下你的数据的最小的数据类型</li>
+<li>使用简单的数据类型。int要比varchar类型在mysql处理上简单</li>
+<li>尽可能的使用not null定义字段</li>
+<li>尽可能的少用text类型，非用不可的时候可以考虑分表</li>
+<li>int 类型存储时间戳，可以用 FROM_UNIXTIME(time) 转换</li>
+<li>biginit存储IP地址 INET_ATON() 存储,INET_NTOA()读取</li>
+</ul>
+<h5 id="表的范式化和反范式化"><a href="#表的范式化和反范式化" class="headerlink" title="表的范式化和反范式化"></a>表的范式化和反范式化</h5><ul>
+<li>范式化是指数据库设计的规范，目前说到的范式化一般值第三设计范式，也就是要求数据表中不存在非关键字段对任意候选关键字段的传递函数依赖<br>则符合第三范式存在以下传递函数依赖关系：<br>　　<code>（商品名称）-&gt;（分类）-&gt;（分类描述）</code><br>也就是说存在非关键字段“分类描述”对关键字段”商品名称“的传递函数依赖 会出现异常比如我把删除商品数据最后会把分类信息也会删除调</li>
+<li>反范式化是指为了查询效率的考虑把原本符合第三范式的表适当添加冗余，以达到优化查询效率的目的，反范式是一种一空间换时间的操作</li>
+</ul>
+<h5 id="数据库的拆分过程基本遵循的顺序是：垂直拆分、读写分离、水平拆分-也称之为分库分表-。"><a href="#数据库的拆分过程基本遵循的顺序是：垂直拆分、读写分离、水平拆分-也称之为分库分表-。" class="headerlink" title="数据库的拆分过程基本遵循的顺序是：垂直拆分、读写分离、水平拆分(也称之为分库分表)。"></a>数据库的拆分过程基本遵循的顺序是：垂直拆分、读写分离、水平拆分(也称之为分库分表)。</h5><h5 id="垂直拆分"><a href="#垂直拆分" class="headerlink" title="垂直拆分"></a>垂直拆分</h5><h5 id="1、什么是垂直拆分？"><a href="#1、什么是垂直拆分？" class="headerlink" title="1、什么是垂直拆分？"></a>1、什么是垂直拆分？</h5><p>指的是将一个包含了很多表的数据库,根据表的功能的不同,拆分为多个小的数据库,每个库中包含部分表。</p>
+<p>比如：电商系统采用的库为db_eshop,根据用户功能和产品功能,可以拆分为用户库db_user和产品库db_product。<br>所谓垂直拆分，就是把原来一个有多列的表拆分成多个表，这解决了表的宽度问题，通常垂直拆分可以按照下面原则：</p>
+<ul>
+<li>通常把不常用的字段单独存放到一个表中。</li>
+<li>把大字段独立存到一个表中</li>
+<li>把经常使用的字段放到一起</li>
+</ul>
+<h5 id="2、什么时候使用垂直拆分？"><a href="#2、什么时候使用垂直拆分？" class="headerlink" title="2、什么时候使用垂直拆分？"></a>2、什么时候使用垂直拆分？</h5><p>刚开始,可能公司的技术团队规模比较小,所有的数据都存放在一个库中。</p>
+<p>随着公司业务的发展,技术团队人员扩张,划分为不同的技术小组,不同的小组负责不同的业务模块。</p>
+<p>如：A小组负责用户模块,B小组负责产品模块。此时可以将数据库进行垂直拆分。</p>
+<h5 id="3、垂直拆分的好处？"><a href="#3、垂直拆分的好处？" class="headerlink" title="3、垂直拆分的好处？"></a>3、垂直拆分的好处？</h5><ul>
+<li><p>垂直拆分会使得单个用户请求的响应时间变长,但是会使得整个服务的吞吐量大大的增加。（服务吞吐量即系统在单位时间内处理请求的数量）</p>
+</li>
+<li><p>使得单个用户请求的响应时间变长的原因在于：在单体应用场景下,所有的业务都在一个节点内部完成,而垂直拆分后,通常会需要进行rpc调用,<br>rpc的调用会加长单个用户请求的响应时间。</p>
+</li>
+</ul>
+<h5 id="4、垂直拆分的另外2种用途？"><a href="#4、垂直拆分的另外2种用途？" class="headerlink" title="4、垂直拆分的另外2种用途？"></a>4、垂直拆分的另外2种用途？</h5><ul>
+<li><p>将一个包含了很多字段的大表拆分为多个小表,每个表中包含部分字段(基本很少遇到)</p>
+</li>
+<li><p>进行服务化(SOA)的改造,除了业务上需要进行拆分,底层的存储也需要进行隔离</p>
+</li>
+</ul>
+<h5 id="二、读写分离"><a href="#二、读写分离" class="headerlink" title="二、读写分离"></a>二、读写分离</h5><h5 id="1、什么是读写分离？"><a href="#1、什么是读写分离？" class="headerlink" title="1、什么是读写分离？"></a>1、什么是读写分离？</h5><ul>
+<li><p>将数据库分为主库和从库,一个主库用于写数据,多个从库完成读数据的操作。</p>
+</li>
+<li><p>主从库通过某种机制进行数据的同步。</p>
+</li>
+</ul>
+<h5 id="2、为什么需要使用读写分离？"><a href="#2、为什么需要使用读写分离？" class="headerlink" title="2、为什么需要使用读写分离？"></a>2、为什么需要使用读写分离？</h5><p>随着业务的不断发展,用户数量和并发量不断上升,此时如果仅靠单个数据库实例来支撑所有的访问压力,数据库将难以支撑。</p>
+<p>比如：产品库中,包含了几万种产品数据,并且每天新增几十条产品数据,而产品库每天的访问可能有几亿甚至几十亿次,数据库读的压力太大,单台mysql实例扛不住。此时可以将数据库进行读写分离,主库负责数据写的操作,多个从库负责数据读的操作。</p>
+<p>注：说白了,读写分离是为了解决数据库读的操作。</p>
+<h5 id="3、数据库进行了读写分离配置后-开发人员需要做哪些事情？"><a href="#3、数据库进行了读写分离配置后-开发人员需要做哪些事情？" class="headerlink" title="3、数据库进行了读写分离配置后,开发人员需要做哪些事情？"></a>3、数据库进行了读写分离配置后,开发人员需要做哪些事情？</h5><p>DBA将mysql配置成主从复制,开发人员需要做如下事情：</p>
+<ul>
+<li><p>更新数据库数据时,应用将数据写入到master主库</p>
+</li>
+<li><p>主库将数据同步给多个slave从库</p>
+</li>
+<li><p>当查询数据时,应用选择某一个slave节点读取数据。</p>
+</li>
+</ul>
+<h5 id="4、读写分离的优点？"><a href="#4、读写分离的优点？" class="headerlink" title="4、读写分离的优点？"></a>4、读写分离的优点？</h5><p>通过配置多个从库,可以有效的避免过大的访问量对单个库造成的压力。</p>
+<h5 id="5、读写分离技术所面临的问题有哪些？"><a href="#5、读写分离技术所面临的问题有哪些？" class="headerlink" title="5、读写分离技术所面临的问题有哪些？"></a>5、读写分离技术所面临的问题有哪些？</h5><ul>
+<li><p>读写分离的基本操作,是对sql类型进行判断,如果是select等读的请求,就走从库.</p>
+</li>
+<li><p>如果是insert、update、delete等写的请求,就走主库。</p>
+</li>
+</ul>
+<h5 id="主从数据同步延迟的问题"><a href="#主从数据同步延迟的问题" class="headerlink" title="主从数据同步延迟的问题"></a>主从数据同步延迟的问题</h5><p>解决办法：因为数据是从主节点通过网络同步给多个从 节点的,因此必然存在延迟问题。</p>
+<p>因此可能出现如下问题：我们在主节点中插入了数据,但是从节点却读取不到数据的问题。</p>
+<p>对于一些强一致性的业务场景,要求插入数据后必须能读取到,对于这种情况,我们需要提供一种方式,让读的请求也可以走主库,而主库上的数据必然是最新的。</p>
+<h5 id="事务问题"><a href="#事务问题" class="headerlink" title="事务问题"></a>事务问题</h5><p>解决办法： 如果一个事务中同时包含了读的请求和写的请求,如果读的请求走从库,写的请求走主库。由于跨了多个库,那么本地事务已经无法控制。</p>
+<p>而分布式事务非常复杂且效率较低,因此读写分离,目前主流的做法是：将事务中所有sql统一走主库,由于只涉及到一个库,本地事务可以解决。</p>
+<h5 id="综上所述："><a href="#综上所述：" class="headerlink" title="综上所述："></a>综上所述：</h5><ul>
+<li><p>垂直拆分可以解决服务吞吐量即提高系统在单位时间内处理请求的数量</p>
+</li>
+<li><p>读写分离可以缓解单库的压力,增强用户并发访问量</p>
+</li>
+<li><p>即经过垂直拆分和主从同步的数据库完全可以承受住难以想象的高并发访问操作。    </p>
+</li>
+</ul>
+<h5 id="三、水平拆分"><a href="#三、水平拆分" class="headerlink" title="三、水平拆分"></a>三、水平拆分</h5><h5 id="1、什么是水平拆分（分表分库）？"><a href="#1、什么是水平拆分（分表分库）？" class="headerlink" title="1、什么是水平拆分（分表分库）？"></a>1、什么是水平拆分（分表分库）？</h5><p>通过一种算法,将数据库进行分割的架构。每个分片中的数据没有重合,所有分片中的数据并集组成全部数据。</p>
+<p>水平分表实际又可以分为如下三种：只分表、只分库、分库分表</p>
+<ul>
+<li><p>只分表：将db库中的user表拆分为2个分表,即uer_0和user_1</p>
+</li>
+<li><p>只分库：将db库拆分为db_0和db_1这2个库,同时在db_0和db_1库中各自新建一个user表,db_0.user表和db_1.user表中各自只存放原来的db.user表中的部分数据</p>
+</li>
+<li><p>分库分表：将db库拆分为db_0和db_1这2个库,db_0中包含user_0、user_1这2个分表,db_1中包含user_2、user_3这2个分表。</p>
+</li>
+</ul>
+<h5 id="2、为什么需要进行分表分库？"><a href="#2、为什么需要进行分表分库？" class="headerlink" title="2、为什么需要进行分表分库？"></a>2、为什么需要进行分表分库？</h5><p>一旦业务表中的数据量比较大,从维护和性能的角度来看,仍然无法掩盖因为数据量过大从而导致数据库性能下降的事实。因此,这个时候mysql DBA就该对数据库进行水平分区,经过水平分区设置后的业务表,必然能够将原本一张表维护的海量数据分配给N个子表进行存储和维护。</p>
+<p>即：单库容量最容易成为性能瓶颈,当单库容量成为瓶颈,我们希望提高数据库的写的性能,降低单库容量的话,就可以使用水平切分。</p>
+<h5 id="3、分表分库的使用场景？"><a href="#3、分表分库的使用场景？" class="headerlink" title="3、分表分库的使用场景？"></a>3、分表分库的使用场景？</h5><p>如果库中的多个表中只有某张表或者少量表数据量过大,那么只需要针对这些表进行拆分,其它表保持不变。</p>
+<h5 id="4、分库分表的好处？"><a href="#4、分库分表的好处？" class="headerlink" title="4、分库分表的好处？"></a>4、分库分表的好处？</h5><p>如果说读写分离实现数据库读能力的水平提升</p>
+<p>那么,分库分表是是吸纳数据库写能力的水平提升</p>
+<ul>
+<li>存储能力的水平扩展</li>
+</ul>
+<p><code>在读写分离的情况下,每个集群中的主从库基本上数据时完全一致的,从存储能力上讲
+在存储海量数据的情况下,可能由于磁盘空间的限制,无法存储所有的数据。
+而分库分表的情况下,我们可以搭建多个mysql主从复制集群,每个集群只存储部分分片的额数据,实现了存储能力的水平扩展。</code></p>
+<ul>
+<li>写能力的水平扩展</li>
+</ul>
+<p><code>在读写分离的情况下,由于每个集群只有一个master,所有的写操作的压力都集中在这一个节点上,在写入并发非常高的情况下,这将会成为整个系统的瓶颈。
+而在分表分库的情况下,每个分片所属的集群都有一个master节点,都可以执行写入的操作,实现写能力的水平扩展,此外减小建立索引开销,降低写操作的锁操作耗时等,都会带来很多显著的好处。</code></p>
+<h5 id="5、分库分表的问题"><a href="#5、分库分表的问题" class="headerlink" title="5、分库分表的问题"></a>5、分库分表的问题</h5><p>主要体现在如下4个方面：基本数据的增删改功能、分布式id、分布式事务、动态扩容</p>
+<ul>
+<li>基本的数据库增删改功能</li>
+</ul>
+<p>对于开发人员而言,虽然分库分表的,但是其还是希望能和单库单表那样去操作数据库。</p>
+<p>如：我们要批量插入4条记录,并且希望根据用户的id字段,确定这条记录插入哪个库的那张表中。如：1号记录插入user1表….4号记录插入user4表</p>
+<p>那么之前的单库作如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into user(id,name) values (1,”tianshouzhi”),(2,”huhuamin”), (3,”wanghanao”),(4,”luyang”)</span><br></pre></td></tr></table></figure>
+
+<p>这显然无法实现,因为我们已经对库和表进行了拆分,这种sql语法只能操作mysql的单个库和单个表,所以必须将sql改为4条,然后分表到每个库上去执行,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">insert into user0(id,name) values  (4,”luyang”)</span><br><span class="line"></span><br><span class="line">insert into user1(id,name) values (1,”tianshouzhi”)</span><br><span class="line"></span><br><span class="line">insert into user2(id,name) values (2,”huhuamin”)</span><br><span class="line"></span><br><span class="line">insert into user3(id,name) values (3,”wanghanao”)</span><br></pre></td></tr></table></figure>
+
+<h5 id="分布式id"><a href="#分布式id" class="headerlink" title="分布式id"></a>分布式id</h5><ul>
+<li><p>在分库分表后,我们不能再使用mysql的自增主键。</p>
+</li>
+<li><p>因为在插入记录的时候,不同的库生成的记录的自增id可能会出现冲突</p>
+</li>
+<li><p>因此,需要一个全局的id生成器,目前分布式id有很多种方案,其中一个比较轻量级的方案是twitter的snowflake算法。</p>
+</li>
+</ul>
+<h5 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h5><p>分布式事务是分库分表的绕不过去的一个坎,因为涉及到了同时更新多个分片数据。</p>
+<p>如：批量插入记录到四个不同的库,如何保证要么同时成功,要么同时失败。</p>
+<p>关于分布式事务,mysql支持XA事务,但是效率较低。</p>
+<p>柔性事务是目前比较主流的方案,柔性事务包括：最大努力通知型、可靠消息最终一致性方案以及TCC两个阶段提交。</p>
+<p>但是无论XA事务还是柔性事务,实现起来都是非常复杂的。</p>
+<h5 id="动态扩容"><a href="#动态扩容" class="headerlink" title="动态扩容"></a>动态扩容</h5><p>动态扩容是指只增加分库分表的数量</p>
+<p>如：将原来user表拆分到2个库的四张表上。</p>
+<p>现在我们希望将分库的数量变为4个,分表的数量变为8个。</p>
+<p>这种情况一般要伴随着数据迁移,如在4张表的情况下,id为7的记录,7%4=3</p>
+<p>因此这条记录位于user3这张表上,但是现在分表的数量变为8个,而7%8=0</p>
+<p>而user0这张表根本没有id=7这条记录,因此如果不进行数据迁移的话,就会出现记录找不到的情况。</p>
+<h5 id="问题：分库分表之后如何实现联合查询？"><a href="#问题：分库分表之后如何实现联合查询？" class="headerlink" title="问题：分库分表之后如何实现联合查询？"></a>问题：分库分表之后如何实现联合查询？</h5><p>可以使用第三方中间件来实现，比如：mycat、shading-jdbc<br>原理解析：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当客户端发送一条sql查询：select * from user;此时中间件会根据有几个子表，拆分成多个语句：</span><br><span class="line">select * from user1;select * from user2;select * from user3等多条语句查询，</span><br><span class="line">然后将查询的结果返回给中间件，然后汇总给客户端。这些语句是并发执行的，所以效率会很高哦。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://jas-wang.fun/2020/07/21/mysql-strcut/" title="MySQL性能优化-数据库结构优化" target="_blank" rel="external">http://jas-wang.fun/2020/07/21/mysql-strcut/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">jas-wang</span><small class="ml-1x"></small></a></h3>
+        <div>个人简介-PHP开发工程师</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/07/21/mysql-index/" title="MySQL性能优化-索引优化"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="wechat" data-mobile-sites="wechat"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jas-wang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2020 Jas wang
+        
+
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'imri2R91G786RLtoBoLoNgpW-gzGzoHsz',
+    appKey: 'D80mEDDfE13OebIhFfhM4HCM',
+    placeholder: '快来评论吧！',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
