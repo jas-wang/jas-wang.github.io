@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jas-wang.fun/2020/07/22/question/</loc>
+    
+    <lastmod>2020-07-22T00:49:54.803Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jas-wang.fun/2020/07/17/php-design/</loc>
     
-    <lastmod>2020-07-22T00:44:20.465Z</lastmod>
+    <lastmod>2020-07-22T00:49:11.688Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://jas-wang.fun/2018/01/15/route/</loc>
     
     <lastmod>2020-07-21T09:58:47.359Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jas-wang.fun/2020/07/17/question/</loc>
-    
-    <lastmod>2020-07-21T09:58:15.873Z</lastmod>
     
   </url>
   
