@@ -40,11 +40,11 @@
       <category term="PHP" scheme="http://jas-wang.fun/categories/PHP/"/>
     
     
+      <category term="PHP" scheme="http://jas-wang.fun/tags/PHP/"/>
+    
       <category term="MySQL" scheme="http://jas-wang.fun/tags/MySQL/"/>
     
       <category term="高并发" scheme="http://jas-wang.fun/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
-    
-      <category term="PHP" scheme="http://jas-wang.fun/tags/PHP/"/>
     
   </entry>
   
@@ -130,9 +130,9 @@
       <category term="PHP" scheme="http://jas-wang.fun/categories/PHP/"/>
     
     
-      <category term="性能优化" scheme="http://jas-wang.fun/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
       <category term="PHP" scheme="http://jas-wang.fun/tags/PHP/"/>
+    
+      <category term="性能优化" scheme="http://jas-wang.fun/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
